@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Better Review Helper",
+    "version": "0.2.0",
+    "description": "Answer 5 quick questions and get a clear review draft for products on Amazon.in, Flipkart, Myntra, Meesho, Nykaa and Ajio.",
+    "permissions": ["clipboardWrite"],
+    "host_permissions": [""],
+    "background": { "service_worker": "background.js" },
+    "content_scripts": [{
+        "matches": [
+            "https://www.amazon.in/*",
+            "https://www.flipkart.com/*",
+            "https://www.myntra.com/*",
+            "https://www.meesho.com/*",
+            "https://www.nykaa.com/*",
+            "https://www.ajio.com/*"
+        ],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+    }]
+}
